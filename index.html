@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/media/praxia-logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Praxia Producciones</title>
+    <meta name="description" content="Praxia Producciones - Producción audiovisual, fotografía, diseño web y 3D.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Oswald:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="logo-container">
+            <img src="/media/praxia-logo.png" alt="Praxia Producciones" class="logo-img">
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#portfolio">Portafolio</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+        <button class="menu-toggle" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="video-background">
+                <video autoplay muted loop playsinline poster="">
+                    <source src="/media/REEL CORTO PRAXIA.mp4" type="video/mp4">
+                    <source src="/media/Reel Corto Praxia.webm" type="video/webm">
+                </video>
+                <div class="overlay"></div>
+            </div>
+            <div class="hero-content fade-in-up">
+                <img src="/media/praxia-logo.png" alt="Praxia Logo" class="hero-logo">
+                <h1 class="hero-title">CREAMOS EXPERIENCIAS <br><span class="highlight">VISUALES</span></h1>
+                <a href="#" class="cta-button" id="openReelBtn">REEL</a>
+            </div>
+        </section>
+
+        <!-- Video Modal -->
+        <div id="videoModal" class="video-modal">
+            <div class="video-modal-content">
+                <span class="close-modal">&times;</span>
+                <video controls id="reelVideo">
+                    <source src="/media/REEL CORTO PRAXIA.mp4" type="video/mp4">
+                    <source src="/media/Reel Corto Praxia.webm" type="video/webm">
+                    Tu navegador no soporta el elemento de video.
+                </video>
+            </div>
+        </div>
+
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">Nuestros Servicios</h2>
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <img src="/media/Praxia Produccion Audiovisual-01.png" alt="Producción Audiovisual">
+                        </div>
+                        <h3>Producción Audiovisual</h3>
+                        <p>Cine, publicidad y contenido digital de alto impacto.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <img src="/media/Praxia Produccion Audiovisual-03.png" alt="Post Producción">
+                        </div>
+                        <h3>Post Producción</h3>
+                        <p>Edición, color grading y efectos visuales profesionales.</p>
+                    </div>
+                    <div class="service-card fade-in">
+                        <div class="service-icon">
+                            <img src="/media/Praxia Produccion Audiovisual-02.png" alt="Servicios de Producción">
+                        </div>
+                        <h3>Servicios de Producción</h3>
+                        <p>Logística y gestión integral para tus rodajes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="section dark-bg">
+            <div class="container">
+                <h2 class="section-title fade-in">Portafolio</h2>
+                <div class="portfolio-filters fade-in">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="Cine y TV">Cine y TV</button>
+                    <button class="filter-btn" data-filter="Corporativo">Corporativo</button>
+                    <button class="filter-btn" data-filter="Fotografía">Fotografía</button>
+                    <button class="filter-btn" data-filter="Producción">Producción</button>
+                    <button class="filter-btn" data-filter="Videoclips Musicales">Videoclips Musicales</button>
+                </div>
+                <div class="portfolio-grid">
+                    <!-- Items will be loaded dynamically via JavaScript -->
+                </div>
+                <div class="pagination-controls fade-in">
+                    <!-- Pagination buttons will be injected here -->
+                </div>
+                <img src="/media/praxia-logo.png" alt="Praxia Logo" class="footer-logo">
+                <p>&copy; 2024 Praxia Producciones. Todos los derechos reservados.</p>
+            </div>
+            </footer>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>

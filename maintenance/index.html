@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/media/praxia-logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Praxia Producciones - En Mantenimiento</title>
+    <meta name="description" content="Praxia Producciones - Sitio en mantenimiento. Contáctanos.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Oswald:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css">
+    <style>
+        /* Override/Add styles for contact modal */
+        .contact-modal-content {
+            position: relative;
+            width: 90%;
+            max-width: 600px;
+            background: #000;
+            box-shadow: 0 0 50px rgba(255, 0, 0, 0.2);
+            padding: 3rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Ensure modal is flex */
+        .video-modal {
+            display: none;
+            /* Hidden by default */
+        }
+
+        .video-modal.active {
+            display: flex;
+            /* Flex when active */
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <section id="home" class="hero">
+            <div class="video-background">
+                <video autoplay muted loop playsinline poster="">
+                    <source src="/media/REEL CORTO PRAXIA.mp4" type="video/mp4">
+                    <source src="/media/Reel Corto Praxia.webm" type="video/webm">
+                </video>
+                <div class="overlay"></div>
+            </div>
+            <div class="hero-content fade-in-up">
+                <img src="/media/praxia-logo.png" alt="Praxia Logo" class="hero-logo">
+                <h1 class="hero-title">CREAMOS EXPERIENCIAS <br><span class="highlight">VISUALES</span></h1>
+                <a href="#" class="cta-button" id="openContactBtn">CONTACTO</a>
+            </div>
+        </section>
+
+        <!-- Contact Modal (Reusing video-modal wrapper for overlay) -->
+        <div id="contactModal" class="video-modal">
+            <div class="contact-modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 class="section-title" style="margin-bottom: 2rem; font-size: 2rem;">Contáctanos</h2>
+                <form class="contact-form" id="maintenanceContactForm">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="NOMBRE" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="EMAIL" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="MENSAJE" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">ENVIAR</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const openBtn = document.getElementById('openContactBtn');
+        const modal = document.getElementById('contactModal');
+        const closeBtn = modal.querySelector('.close-modal');
+        const form = document.getElementById('maintenanceContactForm');
+
+        if (openBtn && modal && closeBtn) {
+            openBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('active');
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        }
+
+        // Handle Form Submission
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('button');
+                const originalText = btn.textContent;
+                btn.textContent = 'ENVIANDO...';
+                btn.disabled = true;
+
+                const formData = new FormData(form);
+
+                try {
+                    const response = await fetch('/contact.php', {
+                        method: 'POST',
+                        body: formData
+                    });
+
+                    // Check if response is JSON
+                    const contentType = response.headers.get("content-type");
+                    if (contentType && contentType.indexOf("application/json") !== -1) {
+                        const data = await response.json();
+                        if (response.ok) {
+                            alert(data.message);
+                            form.reset();
+                            modal.classList.remove('active');
+                        } else {
+                            alert('Error: ' + data.message);
+                        }
+                    } else {
+                        // If not JSON (likely 404 or 500 HTML error page from server)
+                        if (response.status === 404) {
+                            alert('Error: El archivo contact.php no se encontró. Asegúrese de subirlo al servidor.');
+                        } else {
+                            alert('Ocurrió un error inesperado. Por favor intente nuevamente.');
+                        }
+                    }
+
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Error de conexión. Por favor intente nuevamente.');
+                } finally {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
