@@ -1,23 +1,66 @@
+/* =========================================
+   1. GLOBAL VARIABLES
+   Define colors, fonts, and settings used throughout the site.
+   Change these values to update the look of the entire website.
+   ========================================= */
 :root {
     --primary-color: #ff0000;
+    /* Main accent color (Red) */
     --text-color: #ffffff;
+    /* Main text color (White) */
     --bg-color: #050505;
+    /* Main background color (Very dark gray) */
     --card-bg: #111111;
+    /* Background for cards (Services, etc.) */
     --white: #ffffff;
+    /* Pure white */
     --font-heading: 'Oswald', sans-serif;
+    /* Font for Titles */
     --font-body: 'Montserrat', sans-serif;
+    /* Font for Paragraphs */
     --transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    /* Smooth animation speed */
+    --overlay-gradient: radial-gradient(circle, transparent 0%, #050505 100%);
+    /* Hero overlay */
 }
 
+/* Light Theme Override */
+[data-theme="light"] {
+    --bg-color: #FFFFFF;
+    --text-color: #77C6C6;
+    --card-bg: #F4F4F4;
+    --white: #000000;
+    /* Invert white to dark for text on light bg */
+    --primary-color: #B2E266;
+    /* Lime from user palette */
+    --footer-bg: #77C6C6;
+    /* Teal footer for light theme */
+    --overlay-gradient: radial-gradient(circle, transparent 0%, #FFFFFF 250%);
+    /* Light overlay */
+
+    /* Additional palette colors available for use:
+       #707070 (Gray)
+       #DD8EA8 (Pink)
+       #B79CE2 (Lavender)
+    */
+}
+
+/* =========================================
+   2. RESET & BASE STYLES
+   Remove default browser spacing and set base font settings.
+   ========================================= */
 * {
     box-sizing: border-box;
+    /* Include padding/border in element width */
     margin: 0;
     padding: 0;
 }
 
 html {
     scroll-behavior: smooth;
+    /* Smooth scrolling when clicking links */
     scroll-padding-top: 100px;
+    /* Offset for fixed header when scrolling */
 }
 
 body {
@@ -25,12 +68,17 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     overflow-x: hidden;
+    /* Prevent horizontal scrollbar */
     line-height: 1.6;
 }
 
-/* Header */
+/* =========================================
+   3. HEADER & NAVIGATION
+   Styles for the top navigation bar and logo.
+   ========================================= */
 .site-header {
     position: fixed;
+    /* Stick to top */
     top: 0;
     left: 0;
     width: 100%;
@@ -39,13 +87,16 @@ body {
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
+    /* Ensure it stays on top of everything */
     transition: all var(--transition);
 }
 
+/* Style applied when scrolling down (via JavaScript) */
 .site-header.scrolled {
     padding: 1rem 5%;
     background-color: rgba(5, 5, 5, 0.9);
     backdrop-filter: blur(10px);
+    /* Glass effect */
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -71,6 +122,7 @@ body {
     transition: color var(--transition);
 }
 
+/* Underline animation for links */
 .main-nav a::after {
     content: '';
     position: absolute;
@@ -86,8 +138,10 @@ body {
     width: 100%;
 }
 
+/* Mobile Menu Button (Hamburger) */
 .menu-toggle {
     display: none;
+    /* Hidden on desktop */
     background: none;
     border: none;
     cursor: pointer;
@@ -102,10 +156,14 @@ body {
     background-color: var(--text-color);
 }
 
-/* Hero Section */
+/* =========================================
+   4. HERO SECTION
+   The big video banner at the top of the home page.
+   ========================================= */
 .hero {
     position: relative;
     height: 100vh;
+    /* Full viewport height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,13 +178,16 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
+    /* Behind content */
 }
 
 .video-background video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Cover entire area without stretching */
     filter: brightness(0.4);
+    /* Darken video */
 }
 
 .overlay {
@@ -135,7 +196,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, transparent 0%, #050505 100%);
+    background: var(--overlay-gradient);
+    /* Vignette effect */
 }
 
 .hero-content {
@@ -162,6 +224,7 @@ body {
     color: var(--primary-color);
 }
 
+/* Standard Button Style */
 .cta-button {
     display: inline-block;
     padding: 1rem 3rem;
@@ -183,7 +246,10 @@ body {
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
 }
 
-/* Sections */
+/* =========================================
+   5. GENERAL SECTION STYLES
+   Spacing and titles for all sections.
+   ========================================= */
 .section {
     padding: 8rem 2rem;
 }
@@ -202,10 +268,14 @@ body {
     letter-spacing: 5px;
 }
 
-/* Services */
+/* =========================================
+   6. SERVICES SECTION
+   The grid of service cards.
+   ========================================= */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    /* Responsive columns */
     gap: 3rem;
 }
 
@@ -219,6 +289,7 @@ body {
 
 .service-card:hover {
     transform: translateY(-10px);
+    /* Lift up effect */
     border-color: var(--primary-color);
 }
 
@@ -231,6 +302,7 @@ body {
 
 .service-card:hover .service-icon img {
     filter: grayscale(0%);
+    /* Colorize on hover */
 }
 
 .service-card h3 {
@@ -246,7 +318,10 @@ body {
     font-size: 0.9rem;
 }
 
-/* Portfolio Section */
+/* =========================================
+   7. PORTFOLIO SECTION
+   The gallery of videos/images.
+   ========================================= */
 .portfolio-filters {
     display: flex;
     justify-content: center;
@@ -278,6 +353,7 @@ body {
 .portfolio-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    /* Auto-fill columns */
     gap: 1.5rem;
 }
 
@@ -300,8 +376,10 @@ body {
 
 .portfolio-item:hover img {
     transform: scale(1.1);
+    /* Zoom effect */
 }
 
+/* Red overlay on hover */
 .portfolio-overlay {
     position: absolute;
     top: 0;
@@ -314,6 +392,7 @@ body {
     justify-content: center;
     align-items: center;
     opacity: 0;
+    /* Hidden by default */
     transition: opacity 0.3s ease;
     padding: 1rem;
     text-align: center;
@@ -321,6 +400,7 @@ body {
 
 .portfolio-item:hover .portfolio-overlay {
     opacity: 1;
+    /* Show on hover */
 }
 
 .portfolio-overlay h3 {
@@ -343,6 +423,7 @@ body {
     transform: translateY(0);
 }
 
+/* Watermark Title (Visible when NOT hovering) */
 .portfolio-title-watermark {
     position: absolute;
     bottom: 10px;
@@ -361,9 +442,18 @@ body {
 
 .portfolio-item:hover .portfolio-title-watermark {
     opacity: 0;
+    /* Hide on hover so overlay text is clear */
 }
 
-/* Contact */
+/* =========================================
+   8. CONTACT SECTION
+   Styles for the contact form.
+   ========================================= */
+.contact {
+    padding-bottom: 30px;
+    /* Space between contact form and footer */
+}
+
 .contact-form {
     max-width: 700px;
     margin: 0 auto;
@@ -394,10 +484,13 @@ body {
     background: rgba(255, 255, 255, 0.02);
 }
 
-/* Footer */
+/* =========================================
+   9. FOOTER
+   Bottom section of the page.
+   ========================================= */
 .site-footer {
     padding: 4rem 2rem;
-    background-color: #000;
+    background-color: var(--footer-bg, #000);
     text-align: center;
     border-top: 1px solid #111;
 }
@@ -415,7 +508,10 @@ body {
     letter-spacing: 2px;
 }
 
-/* Animations */
+/* =========================================
+   10. ANIMATIONS
+   Fade-in effects for scrolling.
+   ========================================= */
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -443,7 +539,10 @@ body {
     }
 }
 
-/* Responsive */
+/* =========================================
+   11. RESPONSIVE DESIGN (MOBILE)
+   Adjustments for screens smaller than 768px.
+   ========================================= */
 @media (max-width: 768px) {
     .hero-title {
         font-size: 3rem;
@@ -451,6 +550,7 @@ body {
 
     .main-nav {
         display: none;
+        /* Hide menu by default */
         position: absolute;
         top: 100%;
         left: 0;
@@ -462,6 +562,7 @@ body {
 
     .main-nav.active {
         display: block;
+        /* Show when toggled */
     }
 
     .main-nav ul {
@@ -471,10 +572,14 @@ body {
 
     .menu-toggle {
         display: flex;
+        /* Show hamburger button */
     }
 }
 
-/* Video Modal */
+/* =========================================
+   12. VIDEO MODAL
+   Popup for playing videos.
+   ========================================= */
 .video-modal {
     display: none;
     position: fixed;
@@ -536,7 +641,10 @@ body {
     }
 }
 
-/* Pagination Controls */
+/* =========================================
+   13. PAGINATION CONTROLS
+   Buttons for navigating portfolio pages.
+   ========================================= */
 .pagination-controls {
     display: flex;
     justify-content: center;
@@ -576,4 +684,39 @@ body {
 .page-btn.prev,
 .page-btn.next {
     font-weight: bold;
+}
+
+/* =========================================
+   14. THEME TOGGLE
+   Button to switch between light and dark mode.
+   ========================================= */
+.theme-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color var(--transition);
+    margin-right: 1rem;
+    /* Space between toggle and hamburger on mobile */
+}
+
+.theme-toggle:hover {
+    color: var(--primary-color);
+}
+
+.theme-toggle svg {
+    width: 24px;
+    height: 24px;
+}
+
+@media (min-width: 769px) {
+    .theme-toggle {
+        margin-right: 0;
+        margin-left: 2rem;
+        /* Space from nav on desktop */
+    }
 }
