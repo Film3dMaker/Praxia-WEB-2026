@@ -206,23 +206,83 @@ const portfolioItems = [
     // },
     {
         title: "Karun para / Estudio Fe",
-        category: "Fotografía"
+        category: "Fotografía",
+        type: "gallery",
+        images: [
+            "/media/Karun_Estudio_Fe/Karun-1.jpg",
+            "/media/Karun_Estudio_Fe/Karun-2.jpg",
+            "/media/Karun_Estudio_Fe/Karun-3.jpg"
+        ],
+        thumbnail: "/media/Karun_Estudio_Fe/Karun-1.jpg"
     },
     {
         title: "Xanagore Joyas",
-        category: "Fotografía"
+        category: "Fotografía",
+        type: "gallery",
+        images: [
+            "/media/Xanagore_Joyas/Xanagores baja-1.jpg",
+            "/media/Xanagore_Joyas/Xanagores baja-2.jpg",
+            "/media/Xanagore_Joyas/Xanagores baja-3.jpg",
+            "/media/Xanagore_Joyas/Xanagores baja-4.jpg",
+            "/media/Xanagore_Joyas/Xanagores baja-5.jpg",
+            "/media/Xanagore_Joyas/Xanagores baja-6.jpg",
+            "/media/Xanagore_Joyas/Xanagores baja-7.jpg",
+            "/media/Xanagore_Joyas/Xanagores baja-8.jpg",
+            "/media/Xanagore_Joyas/Xanagores baja-9.jpg"
+        ],
+        thumbnail: "/media/Xanagore_Joyas/Xanagores baja-1.jpg"
     },
     {
         title: "Monumentos Nacionales",
-        category: "Fotografía"
+        category: "Fotografía",
+        type: "gallery",
+        images: [
+            "/media/Monumentos_Nacionales/CMN-1.jpg",
+            "/media/Monumentos_Nacionales/CMN-2.jpg",
+            "/media/Monumentos_Nacionales/CMN-4.jpg",
+            "/media/Monumentos_Nacionales/CMN-5.jpg",
+            "/media/Monumentos_Nacionales/CMN-6.jpg",
+            "/media/Monumentos_Nacionales/MH_00062_2017_AV 004.jpg",
+            "/media/Monumentos_Nacionales/MH_00092_2017_AV 018.jpg"
+        ],
+        thumbnail: "/media/Monumentos_Nacionales/CMN-1.jpg"
     },
     {
         title: "Fedex",
-        category: "Fotografía"
+        category: "Fotografía",
+        type: "gallery",
+        images: [
+            "/media/Fedex/FedEx-1.jpg",
+            "/media/Fedex/FedEx-2.jpg",
+            "/media/Fedex/FedEx-3.jpg",
+            "/media/Fedex/FedEx-4.jpg",
+            "/media/Fedex/FedEx-5.jpg",
+            "/media/Fedex/FedEx-6.jpg",
+            "/media/Fedex/FedEx-7.jpg",
+            "/media/Fedex/FedEx-8.jpg",
+            "/media/Fedex/FedEx-9.jpg",
+            "/media/Fedex/FedEx-10.jpg",
+            "/media/Fedex/FedEx-11.jpg",
+            "/media/Fedex/FedEx-12.jpg",
+            "/media/Fedex/FedEx-13.jpg",
+            "/media/Fedex/FedEx-14.jpg",
+            "/media/Fedex/FedEx-15.jpg",
+            "/media/Fedex/FedEx-16.jpg"
+        ],
+        thumbnail: "/media/Fedex/FedEx-1.jpg"
     },
     {
         title: "Baby Cu Fedex",
-        category: "Fotografía"
+        category: "Fotografía",
+        type: "gallery",
+        images: [
+            "/media/Baby_Cu_Fedex/BabyCu_1.jpeg",
+            "/media/Baby_Cu_Fedex/BabyCu_2.jpeg",
+            "/media/Baby_Cu_Fedex/BabyCu_3.jpeg",
+            "/media/Baby_Cu_Fedex/BabyCu_4.jpeg",
+            "/media/Baby_Cu_Fedex/BabyCu_5.jpeg"
+        ],
+        thumbnail: "/media/Baby_Cu_Fedex/BabyCu_1.jpeg"
     }
 ];
 
@@ -295,23 +355,46 @@ function renderPortfolio(filter = 'all', page = 1) {
         const itemEl = document.createElement('div');
         itemEl.className = 'portfolio-item fade-in visible';
 
-        const itemLink = item.link || `https://vimeo.com/search?q=Praxia+Producciones+${encodeURIComponent(item.title)}`;
-        const itemImage = item.image || "/media/praxia-logo.png";
+        // Check if it's a gallery item
+        const isGallery = item.type === 'gallery' && item.images && item.images.length > 0;
 
-        // Determine if it's a YouTube or Vimeo link
-        const isYouTube = itemLink.includes('youtube.com') || itemLink.includes('youtu.be');
-        const buttonText = isYouTube ? 'Ver en YouTube' : 'Ver en Vimeo';
+        if (isGallery) {
+            // Gallery item - use thumbnail and show photo count
+            const itemImage = item.thumbnail || "/media/praxia-logo.png";
 
-        itemEl.innerHTML = `
-            <img src="${itemImage}" alt="${item.title}">
-            <div class="portfolio-title-watermark">${item.title}</div>
-            <div class="portfolio-overlay">
-                <h3>${item.title}</h3>
-                <a href="${itemLink}" target="_blank" style="text-decoration:none; color:white;">
-                    <span>${buttonText}</span>
-                </a>
-            </div>
-        `;
+            itemEl.innerHTML = `
+                <img src="${itemImage}" alt="${item.title}">
+                <div class="portfolio-title-watermark">${item.title}</div>
+                <div class="portfolio-overlay">
+                    <h3>${item.title}</h3>
+                    <span style="cursor:pointer; color:white;">Ver Galería (${item.images.length} fotos)</span>
+                </div>
+            `;
+
+            // Add click handler to open gallery
+            itemEl.style.cursor = 'pointer';
+            itemEl.addEventListener('click', () => {
+                openGallery(item.images, 0, item.title);
+            });
+        } else {
+            // Regular video item - external link
+            const itemLink = item.link || `https://vimeo.com/search?q=Praxia+Producciones+${encodeURIComponent(item.title)}`;
+            const itemImage = item.image || "/media/praxia-logo.png";
+            const isYouTube = itemLink.includes('youtube.com') || itemLink.includes('youtu.be');
+            const buttonText = isYouTube ? 'Ver en YouTube' : 'Ver en Vimeo';
+
+            itemEl.innerHTML = `
+                <img src="${itemImage}" alt="${item.title}">
+                <div class="portfolio-title-watermark">${item.title}</div>
+                <div class="portfolio-overlay">
+                    <h3>${item.title}</h3>
+                    <a href="${itemLink}" target="_blank" style="text-decoration:none; color:white;">
+                        <span>${buttonText}</span>
+                    </a>
+                </div>
+            `;
+        }
+
         portfolioGrid.appendChild(itemEl);
     });
 
@@ -472,3 +555,137 @@ if (themeToggle && sunIcon && moonIcon) {
         applyTheme(newTheme);
     });
 }
+
+// Gallery Modal Logic
+let currentGalleryImages = [];
+let currentGalleryIndex = 0;
+
+const galleryModal = document.getElementById('galleryModal');
+const galleryImage = document.getElementById('galleryImage');
+const galleryCounter = document.querySelector('.gallery-counter');
+const galleryThumbnails = document.querySelector('.gallery-thumbnails');
+const closeGalleryBtn = document.querySelector('.close-gallery');
+const prevBtn = document.querySelector('.gallery-nav.prev');
+const nextBtn = document.querySelector('.gallery-nav.next');
+
+function openGallery(images, startIndex = 0, title = '') {
+    if (!galleryModal || !images || images.length === 0) return;
+
+    currentGalleryImages = images;
+    currentGalleryIndex = startIndex;
+
+    galleryModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+
+    showGalleryImage(currentGalleryIndex);
+    renderThumbnails();
+}
+
+function closeGalleryModal() {
+    if (!galleryModal) return;
+
+    galleryModal.classList.remove('active');
+    document.body.style.overflow = '';
+    currentGalleryImages = [];
+    currentGalleryIndex = 0;
+}
+
+function showGalleryImage(index) {
+    if (!galleryImage || !currentGalleryImages.length) return;
+
+    currentGalleryIndex = index;
+    galleryImage.src = currentGalleryImages[index];
+
+    if (galleryCounter) {
+        galleryCounter.textContent = `${index + 1} / ${currentGalleryImages.length}`;
+    }
+
+    updateActiveThumbnail();
+}
+
+function navigateGallery(direction) {
+    let newIndex = currentGalleryIndex + direction;
+
+    if (newIndex < 0) {
+        newIndex = currentGalleryImages.length - 1;
+    } else if (newIndex >= currentGalleryImages.length) {
+        newIndex = 0;
+    }
+
+    showGalleryImage(newIndex);
+}
+
+function renderThumbnails() {
+    if (!galleryThumbnails) return;
+
+    galleryThumbnails.innerHTML = '';
+
+    currentGalleryImages.forEach((imageSrc, index) => {
+        const thumb = document.createElement('img');
+        thumb.src = imageSrc;
+        thumb.className = 'gallery-thumb';
+        thumb.alt = `Thumbnail ${index + 1}`;
+
+        if (index === currentGalleryIndex) {
+            thumb.classList.add('active');
+        }
+
+        thumb.addEventListener('click', () => {
+            showGalleryImage(index);
+        });
+
+        galleryThumbnails.appendChild(thumb);
+    });
+}
+
+function updateActiveThumbnail() {
+    if (!galleryThumbnails) return;
+
+    const thumbs = galleryThumbnails.querySelectorAll('.gallery-thumb');
+    thumbs.forEach((thumb, index) => {
+        if (index === currentGalleryIndex) {
+            thumb.classList.add('active');
+            thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        } else {
+            thumb.classList.remove('active');
+        }
+    });
+}
+
+// Event Listeners
+if (closeGalleryBtn) {
+    closeGalleryBtn.addEventListener('click', closeGalleryModal);
+}
+
+if (prevBtn) {
+    prevBtn.addEventListener('click', () => navigateGallery(-1));
+}
+
+if (nextBtn) {
+    nextBtn.addEventListener('click', () => navigateGallery(1));
+}
+
+if (galleryModal) {
+    galleryModal.addEventListener('click', (e) => {
+        if (e.target === galleryModal) {
+            closeGalleryModal();
+        }
+    });
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+    if (!galleryModal || !galleryModal.classList.contains('active')) return;
+
+    switch (e.key) {
+        case 'Escape':
+            closeGalleryModal();
+            break;
+        case 'ArrowLeft':
+            navigateGallery(-1);
+            break;
+        case 'ArrowRight':
+            navigateGallery(1);
+            break;
+    }
+});
