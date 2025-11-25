@@ -22,6 +22,10 @@
     /* Smooth animation speed */
     --overlay-gradient: radial-gradient(circle, transparent 0%, #050505 100%);
     /* Hero overlay */
+    --portfolio-overlay: rgba(229, 9, 20, 0.8);
+    /* Portfolio item hover overlay */
+    --portfolio-overlay-text: #ffffff;
+    /* Portfolio overlay text color */
 }
 
 /* Light Theme Override */
@@ -37,6 +41,10 @@
     /* Teal footer for light theme */
     --overlay-gradient: radial-gradient(circle, transparent 0%, #FFFFFF 250%);
     /* Light overlay */
+    --portfolio-overlay: rgba(119, 198, 198, 0.9);
+    /* Teal overlay for light theme */
+    --portfolio-overlay-text: #ffffff;
+    /* Black text for light theme overlay */
 
     /* Additional palette colors available for use:
        #707070 (Gray)
@@ -379,14 +387,14 @@ body {
     /* Zoom effect */
 }
 
-/* Red overlay on hover */
+/* Portfolio overlay on hover */
 .portfolio-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(229, 9, 20, 0.8);
+    background: var(--portfolio-overlay);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -407,6 +415,7 @@ body {
     font-family: 'Oswald', sans-serif;
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
+    color: var(--portfolio-overlay-text);
     transform: translateY(20px);
     transition: transform 0.3s ease;
 }
@@ -414,6 +423,7 @@ body {
 .portfolio-overlay span {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
+    color: var(--portfolio-overlay-text);
     transform: translateY(20px);
     transition: transform 0.3s ease 0.1s;
 }

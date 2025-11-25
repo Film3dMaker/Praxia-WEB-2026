@@ -136,7 +136,9 @@ const portfolioItems = [
     },
     {
         title: "Marriott Emprendedores",
-        category: "Corporativo"
+        category: "Corporativo",
+        link: "https://vimeo.com/343315482",
+        image: "https://i.vimeocdn.com/video/2087483643-d8a7b17656168dfe88d35d8517f2075376a8d646d4f2fa15e5936b8814fd419d-d.jpg?mw=640&q=100"
     },
     {
         title: "Frutillar – Ciudad de la Música",
@@ -148,19 +150,19 @@ const portfolioItems = [
         title: "Los Andes – VPRO HOLANDA",
         category: "Producción",
         link: "https://youtu.be/MClyvu7Yt40",
-        image: "https://i.vimeocdn.com/video/652629639_640x360.jpg"
+        image: "https://img.youtube.com/vi/MClyvu7Yt40/sddefault.jpg"
     },
     {
         title: "Bomber / Ski Spot USA",
         category: "Producción",
         link: "https://www.youtube.com/watch?v=vKTrmLbw_Vs",
-        image: "https://i.vimeocdn.com/video/652629639_640x360.jpg"
+        image: "https://img.youtube.com/vi/vKTrmLbw_Vs/sddefault.jpg"
     },
     {
         title: "Poemas Malditos",
         category: "Producción",
         link: "https://youtu.be/BI3c-FAxzFI",
-        image: "https://i.vimeocdn.com/video/652629639_640x360.jpg"
+        image: "https://img.youtube.com/vi/BI3c-FAxzFI/sddefault.jpg"
     },
     {
         title: "El sueño de la Machi /Kuervos del Sur",
@@ -178,7 +180,7 @@ const portfolioItems = [
         title: "How Does it Feel / Makaroni",
         category: "Videoclips Musicales",
         link: "https://youtu.be/cmUdra4EgRA?si=lYPg-h-ZKSnDrP9l",
-        image: "https://i.vimeocdn.com/video/1661107840-5b8dcc3af605a9aafad08173159f6757a95550667e5f087a7689811ed421f263-d_640.jpg?region=us"
+        image: "https://img.youtube.com/vi/cmUdra4EgRA/sddefault.jpg"
     },
     {
         title: "La quietud / Álamo",
