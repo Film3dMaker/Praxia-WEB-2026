@@ -26,6 +26,8 @@
     /* Portfolio item hover overlay */
     --portfolio-overlay-text: #ffffff;
     /* Portfolio overlay text color */
+    --header-scrolled-bg: rgba(5, 5, 5, 0.9);
+    /* Header background when scrolled */
 }
 
 /* Light Theme Override */
@@ -44,7 +46,9 @@
     --portfolio-overlay: rgba(119, 198, 198, 0.9);
     /* Teal overlay for light theme */
     --portfolio-overlay-text: #ffffff;
-    /* Black text for light theme overlay */
+    /* White text for light theme overlay */
+    --header-scrolled-bg: rgba(255, 255, 255, 0.95);
+    /* White header when scrolled */
 
     /* Additional palette colors available for use:
        #707070 (Gray)
@@ -102,7 +106,7 @@ body {
 /* Style applied when scrolling down (via JavaScript) */
 .site-header.scrolled {
     padding: 1rem 5%;
-    background-color: rgba(5, 5, 5, 0.9);
+    background-color: var(--header-scrolled-bg);
     backdrop-filter: blur(10px);
     /* Glass effect */
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);

@@ -200,10 +200,10 @@ const portfolioItems = [
         link: "https://vimeo.com/340969434",
         image: "https://i.vimeocdn.com/video/792427354-724efa1f605c072b8182f3c3280b4d336e3fb0693d777a7de65f89d8a3d607bd-d_640.jpg?region=us"
     },
-    {
-        title: "Animales en Peligro / Planta Alta Tv",
-        category: "Cine y TV"
-    },
+    // {
+    //     title: "Animales en Peligro / Planta Alta Tv",
+    //     category: "Cine y TV"
+    // },
     {
         title: "Karun para / Estudio Fe",
         category: "Fotografía"
@@ -298,13 +298,17 @@ function renderPortfolio(filter = 'all', page = 1) {
         const itemLink = item.link || `https://vimeo.com/search?q=Praxia+Producciones+${encodeURIComponent(item.title)}`;
         const itemImage = item.image || "/media/praxia-logo.png";
 
+        // Determine if it's a YouTube or Vimeo link
+        const isYouTube = itemLink.includes('youtube.com') || itemLink.includes('youtu.be');
+        const buttonText = isYouTube ? 'Ver en YouTube' : 'Ver en Vimeo';
+
         itemEl.innerHTML = `
             <img src="${itemImage}" alt="${item.title}">
             <div class="portfolio-title-watermark">${item.title}</div>
             <div class="portfolio-overlay">
                 <h3>${item.title}</h3>
                 <a href="${itemLink}" target="_blank" style="text-decoration:none; color:white;">
-                    <span>Ver en Vimeo</span>
+                    <span>${buttonText}</span>
                 </a>
             </div>
         `;
