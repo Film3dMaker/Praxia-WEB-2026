@@ -1,4 +1,5 @@
 import './style.css'
+import { initAboutModal } from './about.js';
 
 // Mobile Menu Toggle
 const menuToggle = document.querySelector('.menu-toggle');
@@ -688,4 +689,9 @@ document.addEventListener('keydown', (e) => {
             navigateGallery(1);
             break;
     }
+});
+
+// Initialize About Modal
+document.addEventListener('DOMContentLoaded', () => {
+    initAboutModal();
 });

@@ -901,3 +901,123 @@ body {
         height: 50px;
     }
 }
+
+/* =========================================
+   THEME VARIABLES FOR MODAL
+   ========================================= */
+:root {
+    --modal-overlay-bg: rgba(0, 0, 0, 0.95);
+}
+
+[data-theme="light"] {
+    --modal-overlay-bg: rgba(255, 255, 255, 0.95);
+}
+
+/* =========================================
+   ABOUT MODAL
+   ========================================= */
+.about-modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-overlay-bg);
+    backdrop-filter: blur(8px);
+    /* Glassmorphism effect */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.about-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.about-content {
+    background: var(--card-bg);
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+    border: 1px solid var(--text-color);
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Custom Minimalistic Scrollbar */
+.about-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.about-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.about-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.about-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="light"] .about-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .about-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.close-about {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: var(--text-color);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 3001;
+    transition: color 0.3s ease;
+    line-height: 1;
+}
+
+.close-about:hover {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        padding: 20px;
+    }
+
+    .close-about {
+        top: 10px;
+        right: 20px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
