@@ -907,10 +907,12 @@ body {
    ========================================= */
 :root {
     --modal-overlay-bg: rgba(0, 0, 0, 0.95);
+    --modal-shadow-color: rgba(0, 0, 0, 0.8);
 }
 
 [data-theme="light"] {
     --modal-overlay-bg: rgba(255, 255, 255, 0.95);
+    --modal-shadow-color: rgba(255, 255, 255, 0.8);
 }
 
 /* =========================================
@@ -942,11 +944,13 @@ body {
     padding: 40px;
     max-width: 800px;
     width: 100%;
-    border: 1px solid var(--text-color);
+    border: none;
+    /* Camouflage border */
     position: relative;
     max-height: 90vh;
     overflow-y: auto;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 100px var(--modal-shadow-color);
+    /* Vignette effect */
 }
 
 /* Custom Minimalistic Scrollbar */
