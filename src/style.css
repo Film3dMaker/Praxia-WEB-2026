@@ -1003,6 +1003,138 @@ body {
     color: var(--primary-color);
 }
 
+
+@media (max-width: 768px) {
+    .gallery-content {
+        padding: 60px 20px 20px;
+    }
+
+    .gallery-nav {
+        font-size: 20px;
+        padding: 15px 10px;
+    }
+
+    .gallery-nav.prev {
+        left: 10px;
+    }
+
+    .gallery-nav.next {
+        right: 10px;
+    }
+
+    .close-gallery {
+        top: 10px;
+        right: 20px;
+        font-size: 40px;
+    }
+
+    .gallery-thumb {
+        width: 80px;
+        height: 50px;
+    }
+}
+
+/* =========================================
+   THEME VARIABLES FOR MODAL
+   ========================================= */
+:root {
+    --modal-overlay-bg: rgba(0, 0, 0, 0.95);
+    --modal-shadow-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme="light"] {
+    --modal-overlay-bg: rgba(255, 255, 255, 0.95);
+    --modal-shadow-color: rgba(255, 255, 255, 0.8);
+}
+
+/* =========================================
+   ABOUT MODAL
+   ========================================= */
+.about-modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-overlay-bg);
+    backdrop-filter: blur(8px);
+    /* Glassmorphism effect */
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.about-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.about-content {
+    background: var(--card-bg);
+    padding: 40px;
+    max-width: 800px;
+    width: 100%;
+    border: none;
+    /* Camouflage border */
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 0 100px var(--modal-shadow-color);
+    /* Vignette effect */
+}
+
+/* Custom Minimalistic Scrollbar */
+.about-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.about-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.about-content::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.about-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="light"] .about-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .about-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.close-about {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: var(--text-color);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 3001;
+    transition: color 0.3s ease;
+    line-height: 1;
+}
+
+.close-about:hover {
+    color: var(--primary-color);
+}
+
 @media (max-width: 768px) {
     .about-content {
         padding: 20px;
@@ -1023,5 +1155,203 @@ body {
     to {
         opacity: 1;
         transform: scale(1);
+    }
+}
+
+/* =========================================
+   SERVICES SECTION: INTERACTIVE HOLOGRAPHIC GRID
+   ========================================= */
+.services-section {
+    padding: 100px 0;
+    background-color: var(--bg-color);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Background Glow Effect */
+.services-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.services-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.service-card-interactive {
+    background: rgba(255, 255, 255, 0.02);
+    /* Ultra-subtle glass */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* Bouncy feel */
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+/* Holographic Hover Effect */
+.service-card-interactive::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.service-card-interactive:hover {
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--primary-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.service-card-interactive:hover::before {
+    opacity: 1;
+}
+
+.card-icon-wrapper {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.4s ease;
+}
+
+.service-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Invert black icon to white, and use screen to make the (now black) background transparent */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2)) invert(1);
+    mix-blend-mode: screen;
+    transition: filter 0.4s ease;
+}
+
+.service-card-interactive:hover .card-icon-wrapper {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.service-card-interactive:hover .service-icon {
+    filter: drop-shadow(0 0 20px var(--primary-color)) invert(1);
+}
+
+.service-card-interactive h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.service-card-interactive p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.interactive-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.interactive-list li {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 5px 0;
+    position: relative;
+    padding-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.interactive-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    opacity: 0.5;
+}
+
+.service-card-interactive:hover .interactive-list li {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Light Theme Adjustments */
+[data-theme="light"] .service-card-interactive {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="light"] .service-card-interactive:hover {
+    background: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] .service-card-interactive p,
+[data-theme="light"] .interactive-list li {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+[data-theme="light"] .service-card-interactive h3 {
+    color: var(--text-color);
+}
+
+[data-theme="light"] .service-icon {
+    /* For light theme: no invert needed if we want black icons, 
+       but we need to handle the white background. 
+       Multiply blends white to transparent. */
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+    mix-blend-mode: multiply;
+}
+
+[data-theme="light"] .service-card-interactive:hover .service-icon {
+    filter: drop-shadow(0 0 20px var(--primary-color));
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .services-grid-container {
+        grid-template-columns: 1fr;
+        /* Stack on mobile */
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .service-card-interactive {
+        padding: 30px 20px;
+    }
+
+    .card-icon-wrapper {
+        width: 80px;
+        height: 80px;
     }
 }

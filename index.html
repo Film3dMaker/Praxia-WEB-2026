@@ -82,38 +82,76 @@
             </div>
         </div>
 
-        <section id="services" class="section">
+        <!-- Services Section: Interactive Holographic Grid -->
+        <section id="services" class="services-section">
             <div class="container">
                 <h2 class="section-title fade-in">Nuestros Servicios</h2>
-                <div class="services-grid">
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <img src="/media/Praxia Produccion Audiovisual-01.png" alt="Producción Audiovisual">
+                <div class="services-grid-container">
+                    <!-- Service 1 -->
+                    <div class="service-card-interactive fade-in-up">
+                        <div class="card-icon-wrapper">
+                            <img src="/media/icons/Produccion audiovisual.png" alt="Producción Audiovisual"
+                                class="service-icon">
                         </div>
                         <h3>Producción Audiovisual</h3>
-                        <p>Cine, publicidad y contenido digital de alto impacto.</p>
+                        <p>Creamos contenido de alto impacto para cine, TV y plataformas digitales.</p>
+                        <ul class="interactive-list">
+                            <li>Comerciales de TV</li>
+                            <li>Videos Corporativos</li>
+                            <li>Documentales</li>
+                        </ul>
                     </div>
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <img src="/media/Praxia Produccion Audiovisual-03.png" alt="Post Producción">
-                        </div>
-                        <h3>Post Producción</h3>
-                        <p>Edición, color grading y efectos visuales profesionales.</p>
-                    </div>
-                    <div class="service-card fade-in">
-                        <div class="service-icon">
-                            <img src="/media/Praxia Produccion Audiovisual-02.png" alt="Servicios de Producción">
+
+                    <!-- Service 2 -->
+                    <div class="service-card-interactive fade-in-up" style="animation-delay: 0.1s;">
+                        <div class="card-icon-wrapper">
+                            <img src="/media/icons/Servicios de produccion icon.png" alt="Servicios de Producción"
+                                class="service-icon">
                         </div>
                         <h3>Servicios de Producción</h3>
-                        <p>Logística y gestión integral para tus rodajes.</p>
+                        <p>Soporte logístico y técnico integral para rodajes nacionales e internacionales.</p>
+                        <ul class="interactive-list">
+                            <li>Scouting de Locaciones</li>
+                            <li>Casting y Talento</li>
+                            <li>Permisos y Logística</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card-interactive fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="card-icon-wrapper">
+                            <img src="/media/icons/Postproduccion icon.png" alt="Postproducción" class="service-icon">
+                        </div>
+                        <h3>Postproducción</h3>
+                        <p>Edición, colorización y efectos visuales que elevan tu narrativa.</p>
+                        <ul class="interactive-list">
+                            <li>Edición Offline/Online</li>
+                            <li>Color Grading</li>
+                            <li>Motion Graphics</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card-interactive fade-in-up" style="animation-delay: 0.3s;">
+                        <div class="card-icon-wrapper">
+                            <img src="/media/icons/Vr icon.png" alt="Realidad Virtual" class="service-icon">
+                        </div>
+                        <h3>Tecnología Inmersiva</h3>
+                        <p>Experiencias VR/AR de última generación para marcas innovadoras.</p>
+                        <ul class="interactive-list">
+                            <li>Videos 360°</li>
+                            <li>Realidad Aumentada</li>
+                            <li>Recorridos Virtuales</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="portfolio" class="section dark-bg">
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio">
             <div class="container">
-                <h2 class="section-title fade-in">Portafolio</h2>
+                <h2 class="section-title fade-in">Nuestro Trabajo</h2>
                 <div class="portfolio-filters fade-in">
                     <button class="filter-btn active" data-filter="all">Todos</button>
                     <button class="filter-btn" data-filter="Cine y TV">Cine y TV</button>
@@ -128,10 +166,10 @@
                 <div class="pagination-controls fade-in">
                     <!-- Pagination buttons will be injected here -->
                 </div>
-
             </div>
         </section>
 
+        <!-- Contact Section -->
         <section id="contact" class="contact">
             <div class="container">
                 <h2 class="section-title fade-in">Contáctanos</h2>
@@ -149,6 +187,7 @@
                 </form>
             </div>
         </section>
+
         <!-- Gallery Modal -->
         <div id="galleryModal" class="gallery-modal">
             <span class="close-gallery">&times;</span>
@@ -187,7 +226,6 @@
                 </div>
             </div>
         </div>
-
 
         <footer class="site-footer">
             <div class="container">
