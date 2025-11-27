@@ -44,6 +44,13 @@ document.querySelectorAll('.fade-in, .fade-in-up').forEach(el => {
 });
 
 // Portfolio Data
+// TO ADD A TRANSLATION: Add a "title_en" property to the item.
+// Example:
+// {
+//     title: "Nombre en Español",
+//     title_en: "Name in English", // <--- Add this line
+//     category: "..."
+// }
 const portfolioItems = [
     {
         title: "Silvestre",
@@ -53,120 +60,140 @@ const portfolioItems = [
     },
     {
         title: "El Funeral del Señor Maturana",
+        title_en: "Mr. Maturana’s Funeral",
         category: "Cine y TV",
         link: "https://vimeo.com/812628077",
         image: "https://i.vimeocdn.com/video/1681808375-2be7275a158082f3ae3fc51664e3b0526751f9315109a9ef22cddc7db990056d-d_640.jpg?region=us"
     },
     {
         title: "LA GAMBETA",
+        title_en: "Dribbling",
         category: "Cine y TV",
         link: "https://vimeo.com/423300877",
         image: "https://i.vimeocdn.com/video/899697736-96be54a996375593fa56541e4c7a0cfaa3ae09b98ce1e8681671543c69c76bd5-d_640.jpg?region=us"
     },
     {
         title: "Deshabitada",
+        title_en: "Uninhabited",
         category: "Cine y TV",
         link: "https://vimeo.com/511388931",
         image: "https://i.vimeocdn.com/video/1063984927-6fdebc7bcf1947f327126ab81f909052bacba5a3edc96538900de9d48ddeb279-d_640.jpg?region=us"
     },
     {
         title: "ESPN – Greenland",
+        title_en: "ESPN – Greenland",
         category: "Cine y TV",
         link: "https://vimeo.com/1106789852/018c898cd6",
         image: "https://i.vimeocdn.com/video/2043625379-b74248cc08d01ba1edceffec85a3890a98e371897b8ae8027c971dd1739c0a3b-d_640.jpg?region=us"
     },
     {
         title: "Qué Dice Latinoamérica",
+        title_en: "What Does Latin America Say?",
         category: "Cine y TV",
         link: "https://vimeo.com/404065212/e6043b91b2",
         image: "https://i.vimeocdn.com/video/927358318-b81c629ad887306c4a7d886ce1d94a6fc03ac9835f90d165ce1d090fcdc68ca1-d_640.jpg?region=us"
     },
     {
         title: "Rompehielo",
+        title_en: "Icebreaker",
         category: "Cine y TV",
         link: "https://vimeo.com/720409029/7fcb2482b4",
         image: "https://i.vimeocdn.com/video/1451125555-71f0fb78706167a6398bd582370fc411af44e346ce709cfbeff09dc477f359cd-d_640.jpg?region=us"
     },
     {
         title: "El viaje de la ballena Jorobada",
+        title_en: "The Journey of the Humpback Whale",
         category: "Cine y TV",
         link: "https://vimeo.com/995101287/989f9bf6cf",
         image: "https://i.vimeocdn.com/video/1911200079-b0e498a84d079ae94e1549a700062a7596f766df91fc8dba04d95d8d3c796008-d_640.jpg?region=us"
     },
     {
         title: "Mi Norte es el Sur",
+        title_en: "My North is the South",
         category: "Cine y TV",
         link: "https://vimeo.com/236696543",
         image: "https://i.vimeocdn.com/video/658879733-fee9616d97cf7d48984c02b1342c3fc68ae99d98e26e0b46ad7b01367a2f0ebd-d_640?region=us"
     },
     {
         title: "Zoom",
+        title_en: "Zoom",
         category: "Corporativo",
         link: "https://vimeo.com/1106787213/d457876c4d",
         image: "https://i.vimeocdn.com/video/2043621635-f12b40072c4d5be8c4893be61bf983724073a7d5087b749154d2456c04e041ec-d_640.jpg?region=us"
     },
     {
         title: "EverFi",
+        title_en: "EverFi",
         category: "Corporativo",
         link: "https://vimeo.com/1095122327",
         image: "https://i.vimeocdn.com/video/2028848061-392af389af7463e55031eba52ff171bf79ac38754820f6ebec7d066f4367c94f-d_640.jpg?region=us"
     },
     {
         title: "Dimarsa",
+        title_en: "Dimarsa",
         category: "Corporativo",
         link: "https://vimeo.com/384014861",
         image: "https://i.vimeocdn.com/video/845629644-2c3b412b7809069072a0c5a437783850e9effa33d0d9a310be80cec8c12fdaaf-d_640.jpg?region=us"
     },
     {
         title: "FEDEX E-BIKE",
+        title_en: "FEDEX E-BIKE",
         category: "Corporativo",
         link: "https://vimeo.com/805311041",
         image: "https://i.vimeocdn.com/video/1626023617-d498def23cfc6264a18234dd42d9ef8b7a2e686782c3d7ada0008b6847660ea3-d_640.jpg?region=us"
     },
     {
         title: "Cramer",
+        title_en: "Cramer",
         category: "Corporativo",
         link: "https://vimeo.com/769734869",
         image: "https://i.vimeocdn.com/video/1549341447-eeb92883039a8bd2c817716b32543f38ad070de7436799daf14d660905711f00-d_640.jpg?region=us"
     },
     {
         title: "EFE - Chile sobre Rieles",
+        title_en: "EFE - Chile on Rails",
         category: "Corporativo",
         link: "https://vimeo.com/427536724",
         image: "https://i.vimeocdn.com/video/2087048242-c65b186ff33f105c745a0104a277266bf57fe7e5c96121db5393e30ff5531031-d_640.jpg?region=us"
     },
     {
         title: "Marriott Emprendedores",
+        title_en: "Marriott Entrepreneurs",
         category: "Corporativo",
         link: "https://vimeo.com/343315482",
         image: "https://i.vimeocdn.com/video/2087483643-d8a7b17656168dfe88d35d8517f2075376a8d646d4f2fa15e5936b8814fd419d-d.jpg?mw=640&q=100"
     },
     {
         title: "Frutillar – Ciudad de la Música",
+        title_en: "Frutillar – City of Music",
         category: "Producción",
         link: "https://vimeo.com/480825475",
         image: "https://i.vimeocdn.com/video/997489937-f0adfd7aa1d9f7dad9eb045f74fc2f6fe247ec09bf9f1207313f8ef97a50ac53-d_640.jpg?region=us"
     },
     {
         title: "Los Andes – VPRO HOLANDA",
+        title_en: "Los Andes – VPRO HOLANDA",
         category: "Producción",
         link: "https://youtu.be/MClyvu7Yt40",
         image: "https://img.youtube.com/vi/MClyvu7Yt40/sddefault.jpg"
     },
     {
         title: "Bomber / Ski Spot USA",
+        title_en: "Bomber / Ski Spot USA",
         category: "Producción",
         link: "https://www.youtube.com/watch?v=vKTrmLbw_Vs",
         image: "https://img.youtube.com/vi/vKTrmLbw_Vs/sddefault.jpg"
     },
     {
         title: "Poemas Malditos",
+        title_en: "Poemas Malditos",
         category: "Producción",
         link: "https://youtu.be/BI3c-FAxzFI",
         image: "https://img.youtube.com/vi/BI3c-FAxzFI/sddefault.jpg"
     },
     {
         title: "El sueño de la Machi /Kuervos del Sur",
+        title_en: "El sueño de la Machi /Kuervos del Sur",
         category: "Videoclips Musicales",
         link: "https://vimeo.com/367128009",
         image: "https://i.vimeocdn.com/video/823391606-4e48f0c29830f3946769244587c0b14b5d420382d04121ac23e96ffc95ef636f-d_640.jpg?region=us"
@@ -235,6 +262,7 @@ const portfolioItems = [
     },
     {
         title: "Monumentos Nacionales",
+        title_en: "National Monuments",
         category: "Fotografía",
         type: "gallery",
         images: [
@@ -348,49 +376,55 @@ function renderPortfolio(filter = 'all', page = 1) {
 
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const paginatedItems = filteredItems.slice(startIndex, endIndex);
+    const itemsToRender = filteredItems.slice(startIndex, endIndex);
+
+    const currentLang = document.documentElement.lang || 'es';
 
     // 3. Render Items
     portfolioGrid.innerHTML = '';
-    paginatedItems.forEach(item => {
+    itemsToRender.forEach(item => {
         const itemEl = document.createElement('div');
         itemEl.className = 'portfolio-item fade-in visible';
 
-        // Check if it's a gallery item
-        const isGallery = item.type === 'gallery' && item.images && item.images.length > 0;
+        const itemImage = item.thumbnail || item.image || "/media/praxia-logo.png";
+        const itemLink = item.link || '#';
+        const isGallery = item.type === 'gallery';
+
+        // Translation Logic
+        const displayTitle = (currentLang === 'en' && item.title_en) ? item.title_en : item.title;
+        const buttonText = isGallery
+            ? (currentLang === 'en' ? 'VIEW GALLERY' : 'VER GALERÍA')
+            : (currentLang === 'en' ? 'WATCH VIDEO' : 'VER VIDEO');
 
         if (isGallery) {
-            // Gallery item - use thumbnail and show photo count
-            const itemImage = item.thumbnail || "/media/praxia-logo.png";
-
             itemEl.innerHTML = `
-                <img src="${itemImage}" alt="${item.title}">
-                <div class="portfolio-title-watermark">${item.title}</div>
+                <img src="${itemImage}" alt="${displayTitle}">
+                <div class="portfolio-title-watermark">${displayTitle}</div>
                 <div class="portfolio-overlay">
-                    <h3>${item.title}</h3>
-                    <span style="cursor:pointer; color:white;">Ver Galería (${item.images.length} fotos)</span>
+                    <h3>${displayTitle}</h3>
+                    <button class="gallery-trigger" style="background:none; border:none; color:white; font-family:var(--font-heading); cursor:pointer; font-size:1rem; letter-spacing:2px; border-bottom: 1px solid var(--primary-color);">
+                        ${buttonText}
+                    </button>
                 </div>
             `;
 
-            // Add click handler to open gallery
-            itemEl.style.cursor = 'pointer';
-            itemEl.addEventListener('click', () => {
-                openGallery(item.images, 0, item.title);
+            const trigger = itemEl.querySelector('.gallery-trigger');
+            trigger.addEventListener('click', () => {
+                openGallery(item.images, 0, displayTitle);
             });
         } else {
-            // Regular video item - external link
-            const itemLink = item.link || `https://vimeo.com/search?q=Praxia+Producciones+${encodeURIComponent(item.title)}`;
-            const itemImage = item.image || "/media/praxia-logo.png";
             const isYouTube = itemLink.includes('youtube.com') || itemLink.includes('youtu.be');
-            const buttonText = isYouTube ? 'Ver en YouTube' : 'Ver en Vimeo';
+            const videoButtonText = currentLang === 'en'
+                ? (isYouTube ? 'Watch on YouTube' : 'Watch on Vimeo')
+                : (isYouTube ? 'Ver en YouTube' : 'Ver en Vimeo');
 
             itemEl.innerHTML = `
-                <img src="${itemImage}" alt="${item.title}">
-                <div class="portfolio-title-watermark">${item.title}</div>
+                <img src="${itemImage}" alt="${displayTitle}">
+                <div class="portfolio-title-watermark">${displayTitle}</div>
                 <div class="portfolio-overlay">
-                    <h3>${item.title}</h3>
+                    <h3>${displayTitle}</h3>
                     <a href="${itemLink}" target="_blank" style="text-decoration:none; color:white;">
-                        <span>${buttonText}</span>
+                        <span>${videoButtonText}</span>
                     </a>
                 </div>
             `;
@@ -887,6 +921,9 @@ function updateContent(lang) {
 
     // Update html lang attribute
     document.documentElement.lang = lang;
+
+    // Re-render portfolio to apply translations
+    renderPortfolio(currentFilter, currentPage);
 }
 
 if (langToggle) {
