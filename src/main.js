@@ -695,3 +695,208 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('DOMContentLoaded', () => {
     initAboutModal();
 });
+
+// Translations
+const translations = {
+    es: {
+        nav: {
+            home: "Inicio",
+            services: "Servicios",
+            portfolio: "Portafolio",
+            about: "Nosotros",
+            contact: "Contacto"
+        },
+        hero: {
+            title: "CREAMOS EXPERIENCIAS <br><span class='highlight'>VISUALES</span>",
+            reel: "REEL"
+        },
+        services: {
+            title: "Nuestros Servicios",
+            card1: {
+                title: "Producción Audiovisual",
+                desc: "Creamos contenido de alto impacto para cine, TV y plataformas digitales.",
+                item1: "Comerciales de TV",
+                item2: "Videos Corporativos",
+                item3: "Documentales"
+            },
+            card2: {
+                title: "Servicios de Producción",
+                desc: "Soporte logístico y técnico integral para rodajes nacionales e internacionales.",
+                item1: "Scouting de Locaciones",
+                item2: "Casting y Talento",
+                item3: "Permisos y Logística"
+            },
+            card3: {
+                title: "Postproducción",
+                desc: "Edición, colorización y efectos visuales que elevan tu narrativa.",
+                item1: "Edición Offline/Online",
+                item2: "Color Grading",
+                item3: "Motion Graphics"
+            },
+            card4: {
+                title: "Tecnología Inmersiva",
+                desc: "Experiencias VR/AR de última generación para marcas innovadoras.",
+                item1: "Videos 360°",
+                item2: "Realidad Aumentada",
+                item3: "Recorridos Virtuales"
+            }
+        },
+        portfolio: {
+            title: "Nuestro Trabajo",
+            filter: {
+                all: "Todos",
+                cine: "Cine y TV",
+                corp: "Corporativo",
+                prod: "Producción",
+                music: "Videoclips Musicales",
+                photo: "Fotografía"
+            }
+        },
+        contact: {
+            title: "Contáctanos",
+            placeholder: {
+                name: "NOMBRE",
+                email: "EMAIL",
+                message: "MENSAJE"
+            },
+            send: "ENVIAR"
+        },
+        about: {
+            title: "Nosotros",
+            p1: "Praxia Producciones es una casa productora fundada en 2015 en Santiago, dedicada a brindar soluciones audiovisuales integrales, desde la producción de campo hasta la postproducción y finalizado.",
+            p2: "Nuestra fortaleza radica en la versatilidad y el alcance. Como miembros de Glocalmaker, ofrecemos una red de contactos activa en toda Latinoamérica, lo que nos permite gestionar producciones regionales y optimizar costos operativos sin sacrificar calidad.",
+            p3: "En Chile, somos expertos en logística y locaciones, con un dominio territorial que abarca desde Santiago hasta el Sur. Con sedes estratégicas en Santiago y Puerto Varas, operamos tanto en el centro urbano como en el corazón de la naturaleza sureña. Esta presencia local nos permite especializarnos en filmaciones en entornos naturales (bosques, ríos, montañas) y gestionar producciones complejas con agilidad.",
+            p4: "Además, brindamos servicios de producción remota vía streaming, permitiendo a directores internacionales controlar el encuadre y la grabación en tiempo real, sin necesidad de viajar."
+        },
+        footer: {
+            rights: "&copy; 2025 Praxia Producciones. Todos los derechos reservados."
+        }
+    },
+    en: {
+        nav: {
+            home: "Home",
+            services: "Services",
+            portfolio: "Portfolio",
+            about: "About Us",
+            contact: "Contact"
+        },
+        hero: {
+            title: "WE CREATE VISUAL <br><span class='highlight'>EXPERIENCES</span>",
+            reel: "REEL"
+        },
+        services: {
+            title: "Our Services",
+            card1: {
+                title: "Audiovisual Production",
+                desc: "We create high-impact content for cinema, TV, and digital platforms.",
+                item1: "TV Commercials",
+                item2: "Corporate Videos",
+                item3: "Documentaries"
+            },
+            card2: {
+                title: "Production Services",
+                desc: "Comprehensive logistical and technical support for national and international shoots.",
+                item1: "Location Scouting",
+                item2: "Casting & Talent",
+                item3: "Permits & Logistics"
+            },
+            card3: {
+                title: "Post-Production",
+                desc: "Editing, color grading, and visual effects that elevate your narrative.",
+                item1: "Offline/Online Editing",
+                item2: "Color Grading",
+                item3: "Motion Graphics"
+            },
+            card4: {
+                title: "Immersive Technology",
+                desc: "Next-gen VR/AR experiences for innovative brands.",
+                item1: "360° Videos",
+                item2: "Augmented Reality",
+                item3: "Virtual Tours"
+            }
+        },
+        portfolio: {
+            title: "Our Work",
+            filter: {
+                all: "All",
+                cine: "Cinema & TV",
+                corp: "Corporate",
+                prod: "Production",
+                music: "Music Videos",
+                photo: "Photography"
+            }
+        },
+        contact: {
+            title: "Contact Us",
+            placeholder: {
+                name: "NAME",
+                email: "EMAIL",
+                message: "MESSAGE"
+            },
+            send: "SEND"
+        },
+        about: {
+            title: "About Us",
+            p1: "Praxia Producciones is a production house founded in 2015 in Santiago, dedicated to providing comprehensive audiovisual solutions, from field production to post-production and finishing.",
+            p2: "Our strength lies in versatility and reach. As members of Glocalmaker, we offer an active network of contacts throughout Latin America, allowing us to manage regional productions and optimize operating costs without sacrificing quality.",
+            p3: "In Chile, we are experts in logistics and locations, with territorial mastery spanning from Santiago to the South. With strategic headquarters in Santiago and Puerto Varas, we operate both in the urban center and in the heart of southern nature. This local presence allows us to specialize in filming in natural environments (forests, rivers, mountains) and manage complex productions with agility.",
+            p4: "In addition, we provide remote production services via streaming, allowing international directors to control framing and recording in real-time, without the need to travel."
+        },
+        footer: {
+            rights: "&copy; 2025 Praxia Producciones. All rights reserved."
+        }
+    }
+};
+
+// Language Toggle Logic
+const langToggle = document.getElementById('langToggle');
+
+function updateContent(lang) {
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        const keys = key.split('.');
+        let value = translations[lang];
+
+        keys.forEach(k => {
+            if (value) value = value[k];
+        });
+
+        if (value) {
+            element.innerHTML = value;
+        }
+    });
+
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+        const key = element.getAttribute('data-i18n-placeholder');
+        const keys = key.split('.');
+        let value = translations[lang];
+
+        keys.forEach(k => {
+            if (value) value = value[k];
+        });
+
+        if (value) {
+            element.placeholder = value;
+        }
+    });
+
+    // Update button text
+    if (langToggle) {
+        langToggle.textContent = lang === 'es' ? 'EN' : 'ES';
+    }
+
+    // Update html lang attribute
+    document.documentElement.lang = lang;
+}
+
+if (langToggle) {
+    // Check saved language, default to 'es'
+    let currentLang = localStorage.getItem('lang') || 'es';
+    updateContent(currentLang);
+
+    langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'es' ? 'en' : 'es';
+        localStorage.setItem('lang', currentLang);
+        updateContent(currentLang);
+    });
+}

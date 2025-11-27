@@ -21,32 +21,35 @@
         </div>
         <nav class="main-nav">
             <ul>
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#services">Servicios</a></li>
-                <li><a href="#portfolio">Portafolio</a></li>
-                <li><a href="#about">Nosotros</a></li>
-                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#home" data-i18n="nav.home">Inicio</a></li>
+                <li><a href="#services" data-i18n="nav.services">Servicios</a></li>
+                <li><a href="#portfolio" data-i18n="nav.portfolio">Portafolio</a></li>
+                <li><a href="#about" data-i18n="nav.about">Nosotros</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contacto</a></li>
             </ul>
         </nav>
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">
-            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="5"></circle>
-                <line x1="12" y1="1" x2="12" y2="3"></line>
-                <line x1="12" y1="21" x2="12" y2="23"></line>
-                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                <line x1="1" y1="12" x2="3" y2="12"></line>
-                <line x1="21" y1="12" x2="23" y2="12"></line>
-                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                style="display:none;">
-                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-        </button>
+        <div class="header-controls">
+            <button id="langToggle" class="lang-toggle" aria-label="Toggle Language">ES</button>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark Mode">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="display:none;">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
         <button class="menu-toggle" aria-label="Abrir menú">
             <span></span>
             <span></span>
@@ -65,8 +68,9 @@
             </div>
             <div class="hero-content fade-in-up">
                 <img src="/media/praxia-logo.png" alt="Praxia Logo" class="hero-logo">
-                <h1 class="hero-title">CREAMOS EXPERIENCIAS <br><span class="highlight">VISUALES</span></h1>
-                <a href="#" class="cta-button" id="openReelBtn">REEL</a>
+                <h1 class="hero-title" data-i18n="hero.title">CREAMOS EXPERIENCIAS <br><span
+                        class="highlight">VISUALES</span></h1>
+                <a href="#" class="cta-button" id="openReelBtn" data-i18n="hero.reel">REEL</a>
             </div>
         </section>
 
@@ -85,27 +89,21 @@
         <!-- Services Section -->
         <section id="services" class="services-section">
             <div class="container">
-                <h2 class="section-title fade-in">Nuestros Servicios</h2>
+                <h2 class="section-title fade-in" data-i18n="services.title">Nuestros Servicios</h2>
                 <div class="services-grid-container">
                     <!-- Service 1 -->
-                    <!-- <div class="service-card-interactive fade-in-up">
-                        <img src="/media/Praxia Produccion Audiovisual-01.png" alt="Producción Audiovisual"
-                            class="service-title-image">
-                        <div class="card-icon-wrapper">
-                            <img src="/media/icons/Produccion audiovisual.png" alt="Producción Audiovisual Icon"
-                                class="service-icon">
-                        </div> -->
                     <div class="service-card-interactive fade-in-up" style="animation-delay: 0.1s;">
                         <div class="card-icon-wrapper">
                             <img src="/media/icons/Servicios de produccion icon.png" alt="Servicios de Producción"
                                 class="service-icon">
                         </div>
-                        <h3> Producción Audiovisual</h3>
-                        <p>Creamos contenido de alto impacto para cine, TV y plataformas digitales.</p>
+                        <h3 data-i18n="services.card1.title"> Producción Audiovisual</h3>
+                        <p data-i18n="services.card1.desc">Creamos contenido de alto impacto para cine, TV y plataformas
+                            digitales.</p>
                         <ul class="interactive-list">
-                            <li>Comerciales de TV</li>
-                            <li>Videos Corporativos</li>
-                            <li>Documentales</li>
+                            <li data-i18n="services.card1.item1">Comerciales de TV</li>
+                            <li data-i18n="services.card1.item2">Videos Corporativos</li>
+                            <li data-i18n="services.card1.item3">Documentales</li>
                         </ul>
                     </div>
 
@@ -115,12 +113,13 @@
                             <img src="/media/icons/Servicios de produccion icon.png" alt="Servicios de Producción"
                                 class="service-icon">
                         </div>
-                        <h3>Servicios de Producción</h3>
-                        <p>Soporte logístico y técnico integral para rodajes nacionales e internacionales.</p>
+                        <h3 data-i18n="services.card2.title">Servicios de Producción</h3>
+                        <p data-i18n="services.card2.desc">Soporte logístico y técnico integral para rodajes nacionales
+                            e internacionales.</p>
                         <ul class="interactive-list">
-                            <li>Scouting de Locaciones</li>
-                            <li>Casting y Talento</li>
-                            <li>Permisos y Logística</li>
+                            <li data-i18n="services.card2.item1">Scouting de Locaciones</li>
+                            <li data-i18n="services.card2.item2">Casting y Talento</li>
+                            <li data-i18n="services.card2.item3">Permisos y Logística</li>
                         </ul>
                     </div>
 
@@ -129,12 +128,13 @@
                         <div class="card-icon-wrapper">
                             <img src="/media/icons/Postproduccion icon.png" alt="Postproducción" class="service-icon">
                         </div>
-                        <h3>Postproducción</h3>
-                        <p>Edición, colorización y efectos visuales que elevan tu narrativa.</p>
+                        <h3 data-i18n="services.card3.title">Postproducción</h3>
+                        <p data-i18n="services.card3.desc">Edición, colorización y efectos visuales que elevan tu
+                            narrativa.</p>
                         <ul class="interactive-list">
-                            <li>Edición Offline/Online</li>
-                            <li>Color Grading</li>
-                            <li>Motion Graphics</li>
+                            <li data-i18n="services.card3.item1">Edición Offline/Online</li>
+                            <li data-i18n="services.card3.item2">Color Grading</li>
+                            <li data-i18n="services.card3.item3">Motion Graphics</li>
                         </ul>
                     </div>
 
@@ -143,12 +143,13 @@
                         <div class="card-icon-wrapper">
                             <img src="/media/icons/Vr icon.png" alt="Realidad Virtual" class="service-icon">
                         </div>
-                        <h3>Tecnología Inmersiva</h3>
-                        <p>Experiencias VR/AR de última generación para marcas innovadoras.</p>
+                        <h3 data-i18n="services.card4.title">Tecnología Inmersiva</h3>
+                        <p data-i18n="services.card4.desc">Experiencias VR/AR de última generación para marcas
+                            innovadoras.</p>
                         <ul class="interactive-list">
-                            <li>Videos 360°</li>
-                            <li>Realidad Aumentada</li>
-                            <li>Recorridos Virtuales</li>
+                            <li data-i18n="services.card4.item1">Videos 360°</li>
+                            <li data-i18n="services.card4.item2">Realidad Aumentada</li>
+                            <li data-i18n="services.card4.item3">Recorridos Virtuales</li>
                         </ul>
                     </div>
                 </div>
@@ -158,14 +159,19 @@
         <!-- Portfolio Section -->
         <section id="portfolio" class="portfolio">
             <div class="container">
-                <h2 class="section-title fade-in">Nuestro Trabajo</h2>
+                <h2 class="section-title fade-in" data-i18n="portfolio.title">Nuestro Trabajo</h2>
                 <div class="portfolio-filters fade-in">
-                    <button class="filter-btn active" data-filter="all">Todos</button>
-                    <button class="filter-btn" data-filter="Cine y TV">Cine y TV</button>
-                    <button class="filter-btn" data-filter="Corporativo">Corporativo</button>
-                    <button class="filter-btn" data-filter="Producción">Producción</button>
-                    <button class="filter-btn" data-filter="Videoclips Musicales">Videoclips Musicales</button>
-                    <button class="filter-btn" data-filter="Fotografía">Fotografía</button>
+                    <button class="filter-btn active" data-filter="all" data-i18n="portfolio.filter.all">Todos</button>
+                    <button class="filter-btn" data-filter="Cine y TV" data-i18n="portfolio.filter.cine">Cine y
+                        TV</button>
+                    <button class="filter-btn" data-filter="Corporativo"
+                        data-i18n="portfolio.filter.corp">Corporativo</button>
+                    <button class="filter-btn" data-filter="Producción"
+                        data-i18n="portfolio.filter.prod">Producción</button>
+                    <button class="filter-btn" data-filter="Videoclips Musicales"
+                        data-i18n="portfolio.filter.music">Videoclips Musicales</button>
+                    <button class="filter-btn" data-filter="Fotografía"
+                        data-i18n="portfolio.filter.photo">Fotografía</button>
                 </div>
                 <div class="portfolio-grid">
                     <!-- Items will be loaded dynamically via JavaScript -->
@@ -179,18 +185,21 @@
         <!-- Contact Section -->
         <section id="contact" class="contact">
             <div class="container">
-                <h2 class="section-title fade-in">Contáctanos</h2>
+                <h2 class="section-title fade-in" data-i18n="contact.title">Contáctanos</h2>
                 <form class="contact-form fade-in-up" id="contactForm">
                     <div class="form-group">
-                        <input type="text" name="name" placeholder="NOMBRE" required>
+                        <input type="text" name="name" placeholder="NOMBRE" required
+                            data-i18n-placeholder="contact.placeholder.name">
                     </div>
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="EMAIL" required>
+                        <input type="email" name="email" placeholder="EMAIL" required
+                            data-i18n-placeholder="contact.placeholder.email">
                     </div>
                     <div class="form-group">
-                        <textarea name="message" placeholder="MENSAJE" rows="5" required></textarea>
+                        <textarea name="message" placeholder="MENSAJE" rows="5" required
+                            data-i18n-placeholder="contact.placeholder.message"></textarea>
                     </div>
-                    <button type="submit" class="cta-button">ENVIAR</button>
+                    <button type="submit" class="cta-button" data-i18n="contact.send">ENVIAR</button>
                 </form>
             </div>
         </section>
@@ -212,22 +221,27 @@
             <div class="about-content">
                 <span class="close-about">&times;</span>
                 <div class="about-text">
-                    <h2 class="section-title" style="margin-bottom: 2rem; font-size: 2.5rem;">Nosotros</h2>
-                    <p>Praxia Producciones es una casa productora fundada en 2015 en Santiago, dedicada a brindar
+                    <h2 class="section-title" style="margin-bottom: 2rem; font-size: 2.5rem;" data-i18n="about.title">
+                        Nosotros</h2>
+                    <p data-i18n="about.p1">Praxia Producciones es una casa productora fundada en 2015 en Santiago,
+                        dedicada a brindar
                         soluciones audiovisuales integrales, desde la producción de campo hasta la postproducción y
                         finalizado.</p>
 
-                    <p>Nuestra fortaleza radica en la versatilidad y el alcance. Como miembros de Glocalmaker, ofrecemos
+                    <p data-i18n="about.p2">Nuestra fortaleza radica en la versatilidad y el alcance. Como miembros de
+                        Glocalmaker, ofrecemos
                         una red de contactos activa en toda Latinoamérica, lo que nos permite gestionar producciones
                         regionales y optimizar costos operativos sin sacrificar calidad.</p>
 
-                    <p>En Chile, somos expertos en logística y locaciones, con un dominio territorial que abarca desde
+                    <p data-i18n="about.p3">En Chile, somos expertos en logística y locaciones, con un dominio
+                        territorial que abarca desde
                         Santiago hasta el Sur. Con sedes estratégicas en Santiago y Puerto Varas, operamos tanto en el
                         centro urbano como en el corazón de la naturaleza sureña. Esta presencia local nos permite
                         especializarnos en filmaciones en entornos naturales (bosques, ríos, montañas) y gestionar
                         producciones complejas con agilidad.</p>
 
-                    <p>Además, brindamos servicios de producción remota vía streaming, permitiendo a directores
+                    <p data-i18n="about.p4">Además, brindamos servicios de producción remota vía streaming, permitiendo
+                        a directores
                         internacionales controlar el encuadre y la grabación en tiempo real, sin necesidad de viajar.
                     </p>
                 </div>
@@ -237,7 +251,7 @@
         <footer class="site-footer">
             <div class="container">
                 <img src="/media/praxia-logo.png" alt="Praxia Logo" class="footer-logo">
-                <p>&copy; 2025Praxia Producciones. Todos los derechos reservados.</p>
+                <p data-i18n="footer.rights">&copy; 2025 Praxia Producciones. Todos los derechos reservados.</p>
             </div>
         </footer>
     </main>
