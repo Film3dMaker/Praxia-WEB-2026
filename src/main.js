@@ -53,6 +53,13 @@ document.querySelectorAll('.fade-in, .fade-in-up').forEach(el => {
 // }
 const portfolioItems = [
     {
+        title: "\"RUSTY\" MOTOR",
+        category: "Realidad Virtual",
+        type: "embed",
+        embedCode: `<iframe title="&quot;RUSTY&quot; MOTOR" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/15f728a8205a432fb9d640a8ccfbe398/embed?autostart=1" style="width: 100%; height: 100%;"> </iframe>`,
+        thumbnail: "https://media.sketchfab.com/models/15f728a8205a432fb9d640a8ccfbe398/thumbnails/6b0bbb9e028b4b2d876c50e06e3af9b8/4f00f4ba81714ba7b4b4caf4c9798655.jpeg"
+    },
+    {
         title: "Silvestre",
         category: "Cine y TV",
         link: "https://vimeo.com/840130711",
@@ -389,12 +396,16 @@ function renderPortfolio(filter = 'all', page = 1) {
         const itemImage = item.thumbnail || item.image || "/media/praxia-logo.png";
         const itemLink = item.link || '#';
         const isGallery = item.type === 'gallery';
+        const isEmbed = item.type === 'embed';
 
         // Translation Logic
         const displayTitle = (currentLang === 'en' && item.title_en) ? item.title_en : item.title;
-        const buttonText = isGallery
-            ? (currentLang === 'en' ? 'VIEW GALLERY' : 'VER GALERÍA')
-            : (currentLang === 'en' ? 'WATCH VIDEO' : 'VER VIDEO');
+        let buttonText = '';
+        if (isGallery) {
+            buttonText = currentLang === 'en' ? 'VIEW GALLERY' : 'VER GALERÍA';
+        } else if (isEmbed) {
+            buttonText = currentLang === 'en' ? 'VIEW 3D MODEL' : 'VER MODELO 3D';
+        }
 
         if (isGallery) {
             itemEl.innerHTML = `
@@ -411,6 +422,21 @@ function renderPortfolio(filter = 'all', page = 1) {
             const trigger = itemEl.querySelector('.gallery-trigger');
             trigger.addEventListener('click', () => {
                 openGallery(item.images, 0, displayTitle);
+            });
+        } else if (isEmbed) {
+            itemEl.innerHTML = `
+                <img src="${itemImage}" alt="${displayTitle}">
+                <div class="portfolio-title-watermark">${displayTitle}</div>
+                <div class="portfolio-overlay">
+                    <h3>${displayTitle}</h3>
+                    <button class="embed-trigger" style="background:none; border:none; color:white; font-family:var(--font-heading); cursor:pointer; font-size:1rem; letter-spacing:2px; border-bottom: 1px solid var(--primary-color);">
+                        ${buttonText}
+                    </button>
+                </div>
+            `;
+            const trigger = itemEl.querySelector('.embed-trigger');
+            trigger.addEventListener('click', () => {
+                openEmbed(item.embedCode);
             });
         } else {
             const isYouTube = itemLink.includes('youtube.com') || itemLink.includes('youtu.be');
@@ -513,6 +539,39 @@ if (openReelBtn && videoModal && closeModal && reelVideo) {
             videoModal.classList.remove('active');
             reelVideo.pause();
             reelVideo.currentTime = 0;
+        }
+    });
+}
+
+// Embed Modal Logic
+const embedModal = document.getElementById('embedModal');
+const closeEmbedModal = document.querySelector('.close-embed-modal');
+const embedContainer = document.getElementById('embedContainer');
+
+function openEmbed(code) {
+    if (!embedModal || !embedContainer) return;
+    embedContainer.innerHTML = code;
+    embedModal.classList.add('active');
+}
+
+if (embedModal && closeEmbedModal) {
+    closeEmbedModal.addEventListener('click', () => {
+        embedModal.classList.remove('active');
+        embedContainer.innerHTML = '';
+    });
+
+    embedModal.addEventListener('click', (e) => {
+        if (e.target === embedModal) {
+            embedModal.classList.remove('active');
+            embedContainer.innerHTML = '';
+        }
+    });
+
+    // Handle escape key to close embed modal too
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && embedModal.classList.contains('active')) {
+            embedModal.classList.remove('active');
+            embedContainer.innerHTML = '';
         }
     });
 }
@@ -783,7 +842,8 @@ const translations = {
                 corp: "Corporativo",
                 prod: "Producción",
                 music: "Videoclips Musicales",
-                photo: "Fotografía"
+                photo: "Fotografía",
+                vr: "Realidad Virtual"
             }
         },
         contact: {
@@ -857,7 +917,8 @@ const translations = {
                 corp: "Corporate",
                 prod: "Production",
                 music: "Music Videos",
-                photo: "Photography"
+                photo: "Photography",
+                vr: "Virtual Reality"
             }
         },
         contact: {

@@ -86,6 +86,16 @@
             </div>
         </div>
 
+        <!-- Embed Modal -->
+        <div id="embedModal" class="video-modal">
+            <div class="video-modal-content" style="width: 80vw; height: 80vh; max-width: 1200px; padding: 0;">
+                <span class="close-embed-modal close-modal"
+                    style="z-index: 10; right: -40px; top: -40px;">&times;</span>
+                <div id="embedContainer" style="width: 100%; height: 100%;"></div>
+            </div>
+        </div>
+
+
         <!-- Services Section -->
         <section id="services" class="services-section">
             <div class="container">
@@ -172,6 +182,8 @@
                         data-i18n="portfolio.filter.music">Videoclips Musicales</button>
                     <button class="filter-btn" data-filter="Fotografía"
                         data-i18n="portfolio.filter.photo">Fotografía</button>
+                    <button class="filter-btn" data-filter="Realidad Virtual" data-i18n="portfolio.filter.vr">Realidad
+                        Virtual</button>
                 </div>
                 <div class="portfolio-grid">
                     <!-- Items will be loaded dynamically via JavaScript -->
