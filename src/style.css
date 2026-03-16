@@ -395,8 +395,8 @@ body {
 
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    /* Auto-fill columns */
+    grid-template-columns: repeat(5, 1fr);
+    /* 5 Columns to make items bigger */
     gap: 1.618rem;
 }
 
@@ -470,19 +470,8 @@ body {
 
 /* Watermark Title (Visible when NOT hovering) */
 .portfolio-title-watermark {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    width: calc(100% - 20px);
-    color: var(--white);
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.5rem;
-    text-transform: uppercase;
-    opacity: 0.25;
-    z-index: 1;
-    pointer-events: none;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    transition: opacity 0.3s ease;
+    display: none;
+    /* Removed per user request */
 }
 
 .portfolio-item:hover .portfolio-title-watermark {
@@ -618,6 +607,16 @@ body {
     .menu-toggle {
         display: flex;
         /* Show hamburger button */
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
     }
 }
 

@@ -53,11 +53,40 @@ document.querySelectorAll('.fade-in, .fade-in-up').forEach(el => {
 // }
 const portfolioItems = [
     {
+        title: "ESTABLO RURAL",
+        title_en: "Rural Stable",
+        category: "Realidad Virtual",
+        type: "embed",
+        embedCode: `<iframe title="Establo Rural - Escaneo 3D Fotogrametría Aérea" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/524f74f90d9c49ba9c26a24cbe72b462/embed" style="width: 100%; height: 100%;"> </iframe>`,
+        thumbnail: "https://media.sketchfab.com/models/524f74f90d9c49ba9c26a24cbe72b462/thumbnails/92829072ca4b4af0ab945202922ad6a6/5c5069b10e4149ae8d17eb60cdab5312.jpeg"
+    },
+    {
         title: "\"RUSTY\" MOTOR",
         category: "Realidad Virtual",
         type: "embed",
         embedCode: `<iframe title="&quot;RUSTY&quot; MOTOR" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/15f728a8205a432fb9d640a8ccfbe398/embed?autostart=1" style="width: 100%; height: 100%;"> </iframe>`,
         thumbnail: "https://media.sketchfab.com/models/15f728a8205a432fb9d640a8ccfbe398/thumbnails/6b0bbb9e028b4b2d876c50e06e3af9b8/4f00f4ba81714ba7b4b4caf4c9798655.jpeg"
+    },
+    {
+        title: "RUSTY MOTOR 2",
+        category: "Realidad Virtual",
+        type: "embed",
+        embedCode: `<iframe title="RUSTY MOTOR 2" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/260e1f3363dc4430870bb62b73da7227/embed" style="width: 100%; height: 100%;"> </iframe>`,
+        thumbnail: "https://media.sketchfab.com/models/260e1f3363dc4430870bb62b73da7227/thumbnails/a467b7630be64b20acad95f0253aa558/708b4fc0a67b4e08978318824f2f9f7d.jpeg"
+    },
+    {
+        title: "A PILE OF WOOD",
+        category: "Realidad Virtual",
+        type: "embed",
+        embedCode: `<iframe title="A PILE OF WOOD" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/489a8ce413ab4fb4a2470a15585ad846/embed" style="width: 100%; height: 100%;"> </iframe>`,
+        thumbnail: "https://media.sketchfab.com/models/489a8ce413ab4fb4a2470a15585ad846/thumbnails/cd1152ab005a4d63a3c4c88bfe571daa/d600f037faa745c7b27c3f74f3f9b428.jpeg"
+    },
+    {
+        title: "A SMALL PILE OF WOOD",
+        category: "Realidad Virtual",
+        type: "embed",
+        embedCode: `<iframe title="A SMALL PILE OF WOOD" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/3b6f9679edc14f509e7849adac1b3db0/embed" style="width: 100%; height: 100%;"> </iframe>`,
+        thumbnail: "https://media.sketchfab.com/models/3b6f9679edc14f509e7849adac1b3db0/thumbnails/8423b9542a74438188b46be73bde250c/a0850eb53af84e978fb322bc38b02de4.jpeg"
     },
     {
         title: "Silvestre",
